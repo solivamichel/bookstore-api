@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Livro implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -23,6 +25,7 @@ public class Livro implements Serializable {
 	
 	private String texto;
 	
+	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "categoria_id")
 	private Categoria categoria;
